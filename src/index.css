@@ -16,7 +16,8 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Inter', sans-serif;
-  background-color: var(--c_dark900); }
+  background-color: var(--c_dark900);
+  transform: scale(0.7); }
 
 #root {
   position: relative;
@@ -109,6 +110,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  margin-left: 40px;
   position: relative;
   width: 288px;
   height: 100%;

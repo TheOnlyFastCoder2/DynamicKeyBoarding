@@ -18,10 +18,8 @@ export function setPosition(state:InitialState, action: PayloadAction<Cell["inde
   const index = action.payload;
 
   if(state.cells[index].x >= constState.widthCanvas) {
-
-
     if(state.health - (constState.stepHealth) >= 0) {
-      state.health -= constState.stepHealth;
+      // state.health -= constState.stepHealth;
       resetCell(
         state.cells[action.payload], 
         state.currLang
@@ -77,7 +75,7 @@ export function removeLetter(state:InitialState, action: PayloadAction<string>) 
           state.levels[2] = 0;
         }
       }
-      
+
       state.scores += 1;
       resetCell(cell, state.currLang);
       return false;
