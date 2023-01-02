@@ -1,4 +1,4 @@
-import {PayloadAction} from "@reduxjs/toolkit";
+import {current, PayloadAction} from "@reduxjs/toolkit";
 
 import {InitialState, Cell} from 'lib/types';
 import { constState, initialState } from 'store/game/state';
@@ -18,10 +18,10 @@ export function setPosition(state:InitialState, action: PayloadAction<Cell["inde
   const index = action.payload;
 
   if(state.cells[index].x >= constState.widthCanvas) {
-    const step =  100 * 0.05;
 
-    if(state.health - (step) >= 0) {
-      state.health -= step;
+
+    if(state.health - (constState.stepHealth) >= 0) {
+      state.health -= constState.stepHealth;
       resetCell(
         state.cells[action.payload], 
         state.currLang
@@ -51,11 +51,41 @@ export function getRun(state:InitialState, action: PayloadAction<boolean>) {
 export function removeLetter(state:InitialState, action: PayloadAction<string>) {
   state.cells.sort((a,b) => b.x - a.x ).every( (cell) => {
     if(cell.letter === action.payload && cell.x > 0) {
-      state.stepCell += 0.05;
+      if(state.health + (constState.stepHealth) <= 100) {
+          state.health += constState.stepHealth * 0.2;
+      }
+
       state.scores += 1;
       resetCell(cell, state.currLang);
       return false;
     }
-    return true;
+    else return true
   })
+
+
+  if(state.mainLevel % 3 === 0) {
+    state.stepCell = constState.stepCell;
+  }
+
+  if(state.scores % 2 === 0) {
+    state.levels.every((level, ind) => {
+      if(level < 1) {
+        state.stepCell += 0.5;
+        state.levels[ind] += 0.45;
+        return false;
+      }
+      else return true;
+    })
+
+    if(state.levels[0] + state.levels[1] + state.levels[2] >= 3) {
+      state.mainLevel += 1;
+      state.levels[0] = 0;
+      state.levels[1] = 0;
+      state.levels[2] = 0;
+    }
+  }
 }
+
+// export function speedUp(state:InitialState, action: PayloadAction<number>) {
+//   state.stepCell += action.payload;
+// }

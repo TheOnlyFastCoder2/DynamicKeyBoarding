@@ -12,21 +12,17 @@ export default function () {
   const state = useSelector(Game.getState);
   const dispatch = useDispatch();
 
-
-  function addMusic(file: FileList) {
-      const audio = new Audio(URL.createObjectURL(file[0]));
-      constState.analyzer.init(audio, setFrequencyDates)
-
-      constState.analyzer.preparationAudio();
-      constState.analyzer.getPlayAudio();
-  }
-
-
   function setFrequencyDates(arr:Array<number>) {
     for(let i = 0; i < state.cells.length; i++) {
-      dispatch(Game.actions.setFrequencyData([i,arr[40]]))
+      dispatch(Game.actions.setFrequencyData([i,arr[400]]))
     }
   }
+
+  function addMusic(audio: HTMLAudioElement) {
+    constState.analyzer.init(audio, setFrequencyDates)
+    constState.analyzer.preparationAudio();
+    constState.analyzer.getPlayAudio();
+}
 
   function setLanguage({target}: React.MouseEvent<HTMLElement>) {
     const button = target as HTMLElement;
@@ -35,11 +31,26 @@ export default function () {
 
   function closePopUp({target}:EventTarget) {
     if(target instanceof HTMLInputElement) {
-      addMusic(target.files!)
+      if(target!.files as FileList) {
+        const files: FileList = target!.files!;
+        const audio = new Audio(URL.createObjectURL(files[0]));
+
+        addMusic(audio);
+      }
     }
-    if(constState.analyzer.isThereAudio()) {
-      constState.analyzer.getRestartAudio();
+    else {
+      const button = target as HTMLElement;
+      switch(button.dataset.key) {
+        case "testMusic": 
+          const audio = new Audio(window.location.href + "music_1.mp3");
+          addMusic(audio);
+          break;
+        case "withCurrMusic":
+          constState.analyzer.getRestartAudio();
+          break;
+      }
     }
+
     dispatch(Game.actions.getRun(true));
   }
 
@@ -49,17 +60,23 @@ export default function () {
         state.isRunning === false && 
         <div className="DialogFile">
           <div className="DialogFile_container">
-              <label htmlFor="dialogFile">выберите музыку</label>
+              <label htmlFor="dialogFile">выберите музыку на ПК</label>
               <input id="dialogFile" type="file" onChange={closePopUp} accept="audio/*"/>
+              <button data-key={"testMusic"} onClick={closePopUp}>
+                выбрать тестовую музыку
+              </button>
 
               {
                 constState.analyzer.isThereAudio() &&
-                <button onClick={closePopUp}>
+                <button data-key={"withCurrMusic"} onClick={closePopUp}>
                   начать заново с этой музыкой
                 </button>
               }
               
-              <button onClick={closePopUp}>играть без музыки</button>
+              <button onClick={closePopUp}>
+                играть без музыки
+              </button>
+
               <div className="DialogFile_lang">
                 {
                   Object.keys(letters).map((lang) => {

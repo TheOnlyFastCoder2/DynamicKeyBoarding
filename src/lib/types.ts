@@ -12,11 +12,15 @@ export interface Cell {
 export interface ConstState {
   readonly widthCanvas: number,
   readonly heightCanvas: number,
-  readonly sizeCell: number,
+
   readonly fontSize: number,
+
+  readonly stepCell: number,
+  readonly sizeCell: number,
 
   readonly offsetX: number
   readonly offsetY: number,
+  readonly stepHealth: number,
 
   readonly analyzer: Analyzer,
 
@@ -33,8 +37,8 @@ export interface Letters {
 export interface InitialState {
   isGameOver: boolean,
   isRunning: boolean,
-  maxLevel: number,
-  levelHardMode: number,
+  levels: Array<number>,
+  mainLevel: number,
   health: number,
   scores: number,
   currLang: LettersType,

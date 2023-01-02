@@ -1,4 +1,4 @@
-import {InitialState, ConstState, Letters, LettersType} from 'lib/types';
+import {InitialState, ConstState, Letters} from 'lib/types';
 import Analyzer from "lib/Analyzer";
 
 
@@ -19,10 +19,12 @@ export const letters: Letters = {
 export const constState: ConstState  = {
   widthCanvas: 1920,
   heightCanvas: 594,
+  stepCell: 5,
   sizeCell: 80,
   fontSize: 48,
   offsetX: 200,
   offsetY: 200,
+  stepHealth: 100 * 0.05,
   rangeOfRandomCells: 40,
   analyzer: new Analyzer()
 }; 
@@ -30,12 +32,12 @@ export const constState: ConstState  = {
 
 export const initialState: InitialState  = {
 
-  stepCell: 5,
+  stepCell: constState.stepCell,
   isRunning: false,
   isGameOver: false,
 
-  maxLevel: 15,
-  levelHardMode: 1,
+  levels: [0,0,0],
+  mainLevel: 1,
   health: 100,
   scores: 0,
 

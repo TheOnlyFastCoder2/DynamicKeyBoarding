@@ -51,6 +51,8 @@ export default function () {
         0.009, 0.012, setPositionsForCells
       ));
     }
+
+    dispatch(Game.actions.setCells([30, state.currLang]))  
   }, [state.isRunning])
   
   function restartGame() {
