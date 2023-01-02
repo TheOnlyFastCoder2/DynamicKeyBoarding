@@ -20,7 +20,6 @@ body {
   align-items: center;
   font-family: 'Inter', sans-serif;
   background-color: var(--c_dark900);
-  transform: scale(0.7);
 }
 
 #root {
@@ -32,6 +31,7 @@ body {
   height: 1080px;
   border: 20px solid rgba(194, 223, 232, 0.1);
   box-shadow: 0 0 50px 10px rgba($color: #000000, $alpha: 0.2);
+  transform: scale(0.75);
 
   .LowerPanel {
     width: 100%;

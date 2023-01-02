@@ -19,7 +19,7 @@ export function setPosition(state:InitialState, action: PayloadAction<Cell["inde
 
   if(state.cells[index].x >= constState.widthCanvas) {
     if(state.health - (constState.stepHealth) >= 0) {
-      // state.health -= constState.stepHealth;
+      state.health -= constState.stepHealth;
       resetCell(
         state.cells[action.payload], 
         state.currLang
