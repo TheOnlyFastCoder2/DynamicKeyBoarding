@@ -1,0 +1,59 @@
+.DialogFile {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_background {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: var(--c_dark800);
+    opacity: .8;
+  }
+
+  &_container {
+    position: absolute;
+
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 600px;
+    height: 200px;
+    z-index: 99;
+    border-radius: 4px;
+
+    input {
+      display: none;
+      background: red;
+    }
+
+    button, label {
+      font-size: 24px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      background-color: var(--c_light900);
+      outline: none;
+    }
+  }
+
+  &_lang {
+    display: flex;
+    gap: 10px 20px;
+   
+    button {
+      opacity: 0.5;
+      &.current {
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.Score {
+  padding-left: 37px;
+  width: 380px;
+  text-transform: uppercase;
+
+  h2 {
+    font-size: 53px;
+    font-weight: 600;
+    line-height: 64px;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--c_light900);
+    opacity: 0.2;
+  }
+
+  h1 {
+    font-size:150px;
+    font-weight: 900;
+    line-height: 254px;
+    font-style: italic;
+    letter-spacing: 0.03em;
+    opacity: 0.5;
+    color: var(--c_light900);
+  }
+} 

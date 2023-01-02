@@ -1,0 +1,18 @@
+.Health {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  position: relative;
+  width: 288px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0) var(--hp), var(--c_light900) 100%); 
+  opacity: 0.5;
+  h2 {
+    color: white;
+    font-size: 60px;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+  }
+}
