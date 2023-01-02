@@ -1,3 +1,4 @@
+import { LettersType } from 'lib/types';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -29,7 +30,7 @@ export default function () {
   return (
     <div className="Keyboard">
       {
-        letters[state.currLang].map((row, i) => {
+        letters[state.currLang as LettersType].map((row, i) => {
           return (
             <ul key={row[0]+i}>
               {

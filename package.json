@@ -7,7 +7,7 @@
     "dev": "vite",
 
     "scss": "sass --watch ./styles/bundler.scss:./src/index.css",
-    "start": " concurrently -k \"npm run dev\" \"npm run scss\"",
+    "start": "concurrently -k \"npm run dev\" \"npm run scss\"",
     
     "build": "tsc && vite build",
     "preview": "vite preview"
