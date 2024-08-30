@@ -21,6 +21,7 @@
       "game/*": ["./src/game/*"],
       "lib/*": ["./src/lib/*"],
       "store/*": ["./src/store/*"],
+      "styles/*": ["./styles/*"],
       "components/*": ["./src/components/*"],
       "imgs/*": ["./src/assets/imgs/*"],
     }
