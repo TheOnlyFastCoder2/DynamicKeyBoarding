@@ -51,7 +51,7 @@ export default class Analyzer {
       const bufferLength = this.analyser.frequencyBinCount;
       const array = new Uint8Array(bufferLength);
       this.analyser.getByteFrequencyData(array);
-      
+
       if(this.audio.duration - 20 < this.audio.currentTime) {
         this.audio.currentTime = 0;
       }
@@ -62,3 +62,4 @@ export default class Analyzer {
     }
   }
 }
+

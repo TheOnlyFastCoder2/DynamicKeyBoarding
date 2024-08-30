@@ -7,15 +7,19 @@ import { LettersType } from 'lib/types';
 
 
 type EventTarget = React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLButtonElement>;
+const average = (array:number[]) => array.reduce((a, b) => a + b) / array.length;
 
 export default function () {
   const state = useSelector(Game.getState);
   const dispatch = useDispatch();
 
   function setFrequencyDates(arr:Array<number>) {
-    for(let i = 0; i < state.cells.length; i++) {
-      dispatch(Game.actions.setFrequencyData([i,arr[400]]))
-    }
+    
+    if(arr.length > 0)
+      for(let i = 0; i < state.cells.length; i++) {
+        dispatch(Game.actions.setFrequencyData([i,arr[355]]))
+      }
+      
   }
 
   function addMusic(audio: HTMLAudioElement) {

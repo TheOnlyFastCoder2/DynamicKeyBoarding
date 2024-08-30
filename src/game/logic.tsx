@@ -44,11 +44,11 @@ export function resetCell (
 }
 
 function getStartedPositions (range: number): {getPosition:Function} {
-  const arr = Array.from(new Array(range)).map( (_, i) => i);
   return {
     getPosition: (): number  => {
-      const indItem = getRandomNumber(0, arr.length-1);
-      return arr.splice(indItem , 1)[0];
+      const indItem = getRandomNumber(0, range-1);
+      range -= -1;
+      return indItem;
     }
   }
 }

@@ -22,10 +22,10 @@ export const constState: ConstState  = {
   stepCell: 5,
   sizeCell: 80,
   fontSize: 48,
-  offsetX: 200,
+  offsetX: 300,
   offsetY: 200,
-  stepHealth: 100 * 0.05,
-  rangeOfRandomCells: 40,
+  stepHealth: 100 * 0.02,
+  rangeOfRandomCells: 25,
   analyzer: new Analyzer()
 }; 
 

@@ -19,6 +19,7 @@ export default defineConfig({
       "imgs": setPath("./src/assets/imgs"),
       "store": setPath("./src/store"),
       "game": setPath("./src/game"),
+      "styles": setPath("./styles"),
       "components": setPath("./src/components"),
     }
   }

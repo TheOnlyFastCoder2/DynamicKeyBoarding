@@ -42,7 +42,6 @@ export  function createCell(
   const frequencyData = cell.frequencyData * 0.4;
   
   const cellSize = constState.sizeCell  + frequencyData; 
-
   roundRect(
     ctx, 
     cell.x, cell.y-(frequencyData/2),

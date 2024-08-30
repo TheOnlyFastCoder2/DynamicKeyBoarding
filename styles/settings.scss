@@ -22,19 +22,46 @@ body {
   background-color: var(--c_dark900);
 }
 
-#root {
+#root, .Game {
   position: relative;
   display: flex;
   flex-direction: column;
-
+  align-items: center;
+  justify-content: center;
+}
+#root {
   max-width: 1920px;
   height: 1080px;
-  border: 20px solid rgba(194, 223, 232, 0.1);
-  box-shadow: 0 0 50px 10px rgba($color: #000000, $alpha: 0.2);
   transform: scale(0.75);
 
   .LowerPanel {
     width: 100%;
     height: 100%;
+  }
+}
+
+.Game {
+  width: 100%;
+  height: 100%;
+  border: 20px solid rgba(194, 223, 232, 0.1);
+  box-shadow: 0 0 50px 10px rgba($color: #000000, $alpha: 0.2);
+}
+
+.ErrorMobile {
+  display: none;
+}
+
+@media  (max-width: 1430px) or (max-height: 800px){
+  .Game {
+    display: none;
+  }
+
+  #root {
+    max-width: 100%;
+    height: 100%;
+    transform: scale(1);
+  }
+  .ErrorMobile {
+    display: flex;
   }
 }

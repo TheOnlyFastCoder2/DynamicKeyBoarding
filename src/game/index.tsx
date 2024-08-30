@@ -11,6 +11,7 @@ import DialogFile from 'components/DialogFile';
 import FinishGame from 'components/FinishGame';
 
 import {createCell} from 'game/render/context2D';
+import ErrorMobile from 'components/ErrorMobile';
 
 export default function () {
 
@@ -37,7 +38,7 @@ export default function () {
   }
   
   useEffect(() => {
-    dispatch(Game.actions.setCells([30, state.currLang]))  
+    dispatch(Game.actions.setCells([25, state.currLang]))  
   },[state.currLang])
 
   useEffect(() => {
@@ -47,9 +48,12 @@ export default function () {
     
     if(state.isRunning) { 
       setRefCtx(canvas.getContext('2d')!);
-      setReqAnimation(new requestAnimation(
+      const animFrame = new requestAnimation(
         0.009, 0.012, setPositionsForCells
-      ));
+      );
+      animFrame.toStartFrame();
+      animFrame.winTarget();
+      setReqAnimation(animFrame);
     }
 
     dispatch(Game.actions.setCells([30, state.currLang]))  
@@ -57,7 +61,7 @@ export default function () {
   
   function restartGame() {
     clearCanvas();
-    reqAnimation?.getClearFrame();
+    reqAnimation?.cancelFrameAnimation();
     constState.analyzer.getPauseAudio();
     dispatch(Game.actions.restartStore());
   }
@@ -76,10 +80,13 @@ export default function () {
 
   return (
     <>
-      <FinishGame flag={state.isGameOver} restartGame={restartGame}/>
-      <DialogFile/>
-      <canvas ref={refCanvas}></canvas>
-      <LowerPanel/>
+      <ErrorMobile/>
+      <div className='Game'>
+        <FinishGame flag={state.isGameOver} restartGame={restartGame}/>
+        <DialogFile/>
+        <canvas ref={refCanvas}></canvas>
+        <LowerPanel/>
+    </div>
     </>
   )
 }
