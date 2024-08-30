@@ -9,10 +9,10 @@ const setPath = (dir) => {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // publicDir:"./public",
-  // build: {
-  //   outDir: "../"
-  // },
+  publicDir:"./public",
+  build: {
+    outDir: "../"
+  },
   resolve: {
     alias: {
       "lib": setPath("./src/lib"),
