@@ -48,11 +48,11 @@ export default function () {
     
     if(state.isRunning) { 
       setRefCtx(canvas.getContext('2d')!);
-      const animFrame = new requestAnimation(
-        0.009, 0.012, setPositionsForCells
-      );
+      const animFrame = new requestAnimation();
+      animFrame.init(0.009, () => {
+        setPositionsForCells()
+      })
       animFrame.toStartFrame();
-      animFrame.winTarget();
       setReqAnimation(animFrame);
     }
 
