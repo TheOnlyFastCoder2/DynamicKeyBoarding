@@ -33,9 +33,9 @@ export  function createCell(
   const textWidth = metrics.width;
   const textHeight = (metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent)/ 2;
   
-  const colorCell = getCSSProperty('--c_light900');
-  const colorBorder = getCSSProperty('--c_dark800');
-  const colorText = getCSSProperty('--c_dark900');
+  const colorCell = `rgb(${getCSSProperty('--c_light900')})`;
+  const colorBorder = `rgb(${getCSSProperty('--c_light800')})`;
+  const colorText = `rgb(${getCSSProperty('--c_dark900')})`;
   
 
   ctx.font = `600 ${constState.fontSize}px sans-serif`;

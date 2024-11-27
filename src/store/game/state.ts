@@ -22,9 +22,9 @@ export const constState: ConstState  = {
   stepCell: 5,
   sizeCell: 80,
   fontSize: 48,
-  offsetX: 300,
+  offsetX: 250,
   offsetY: 200,
-  stepHealth: 100 * 0.02,
+  stepHealth: 100 * 0.08,
   rangeOfRandomCells: 25,
   analyzer: new Analyzer()
 }; 
@@ -33,9 +33,9 @@ export const constState: ConstState  = {
 export const initialState: InitialState  = {
 
   stepCell: constState.stepCell,
+  difficultyFactor: 0.5,
   isRunning: false,
   isGameOver: false,
-
   levels: [0,0,0],
   mainLevel: 1,
   health: 100,

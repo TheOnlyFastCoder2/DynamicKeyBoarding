@@ -3,6 +3,7 @@ import { RootState } from '../index';
 
 import initialState from './state';
 import * as reducers from './reducers';
+import { InitialState } from "lib/types";
 
 
 const Slice = createSlice({
@@ -12,6 +13,6 @@ const Slice = createSlice({
 })
 
 export const {actions} = Slice;
-export const getState = (state: RootState) => state.gameReducer;
+export const getState = (state: RootState) => state.gameReducer as InitialState;
 
-export default Slice.reducer;
+export default Slice.reducer ;

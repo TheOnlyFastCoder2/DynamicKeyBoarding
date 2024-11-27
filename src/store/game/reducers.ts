@@ -21,6 +21,7 @@ export function setPosition(state:InitialState, action: PayloadAction<Cell["inde
     if(state.health - (constState.stepHealth) >= 0) {
       state.health -= constState.stepHealth;
       resetCell(
+        state.cells,
         state.cells[action.payload], 
         state.currLang
       );
@@ -42,24 +43,42 @@ export function setLang(state:InitialState, action: PayloadAction<InitialState["
   state.currLang = action.payload;
 }
 
+export function setDifficultyFactor(state:InitialState, action: PayloadAction<number>) {
+  state.difficultyFactor = action.payload;
+}
+
+export function setMainLevel(state:InitialState, action: PayloadAction<number>) {
+  state.mainLevel = action.payload;
+}
+
 export function getRun(state:InitialState, action: PayloadAction<boolean>) {
   state.isRunning = action.payload;
 }
 
 export function removeLetter(state:InitialState, action: PayloadAction<string>) {
   state.cells.sort((a,b) => b.x - a.x ).every( (cell) => {
-    // cell.letter === action.payload
     if( cell.letter === action.payload && cell.x > 0) {
       if(state.health + (constState.stepHealth) <= 100) {
           state.health += constState.stepHealth;
       }
 
-      if(state.mainLevel % 3 === 0) {
-        if(state.stepCell > 7)  state.stepCell -=  0.5;
-        else if(state.stepCell < state.mainLevel*0.3) 
-          state.stepCell +=  state.mainLevel*0.1
-        else state.stepCell +=  state.mainLevel*0.1
-        
+      const speedThreshold = 5;  // Speed at which deceleration starts
+      const decelerationRate = 0.03 / initialState.difficultyFactor; // Rate of speed decrease
+      const baseIncrease = 0.05 * initialState.difficultyFactor;
+      const acceleration = 0.005 * initialState.difficultyFactor;
+      const minStepCell = 0.5;
+      
+      
+      if (state.mainLevel % 3 === 0) {
+        let increase = baseIncrease + acceleration * state.mainLevel;
+      
+        if (state.stepCell > speedThreshold) {
+          increase -= decelerationRate * (state.stepCell - speedThreshold); // Decelerate if above threshold
+          increase = Math.max(0, increase); // Ensure increase doesn't become negative
+        }
+      
+      
+        state.stepCell = Math.max(minStepCell, state.stepCell + increase);
       }
      
       if(state.scores % 2 === 0) {
@@ -80,13 +99,9 @@ export function removeLetter(state:InitialState, action: PayloadAction<string>) 
       }
 
       state.scores += 1;
-      resetCell(cell, state.currLang);
+      resetCell(state.cells, cell, state.currLang);
       return false;
     }
     else return true
   })
 }
-
-// export function speedUp(state:InitialState, action: PayloadAction<number>) {
-//   state.stepCell += action.payload;
-// }

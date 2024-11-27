@@ -56,6 +56,7 @@ export default class Analyzer {
         this.audio.currentTime = 0;
       }
 
+
       this.callback(array);
   
       this.animID = requestAnimationFrame(this.listnerAudio.bind(this));

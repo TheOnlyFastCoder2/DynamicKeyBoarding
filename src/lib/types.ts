@@ -41,6 +41,7 @@ export interface InitialState {
   mainLevel: number,
   health: number,
   scores: number,
+  difficultyFactor: number,
   currLang: LettersType,
   stepCell: number,
   cells: Cell[]

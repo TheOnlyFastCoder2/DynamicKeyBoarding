@@ -9,8 +9,7 @@
     line-height: 64px;
     font-weight: 900;
     font-style: italic;
-    color: var(--c_light900);
-    opacity: 0.2;
+    color: rgb(var(--c_light900), 0.2);
   }
 
   h1 {
@@ -20,6 +19,6 @@
     font-style: italic;
     letter-spacing: 0.03em;
     opacity: 0.5;
-    color: var(--c_light900);
+    color: rgb(var(--c_light900));
   }
 } 

@@ -6,9 +6,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --c_dark900: #232227;
-  --c_dark800: #302F34;
-  --c_light900: #C1DEE7D9;
+  --c_dark900: 35, 34, 39;
+  --c_dark800: 58 55 69;
+  --c_light800: 78, 80, 93;
+  --c_light900: 193, 222, 231;
+  
   --hp: 0%;
 }
 
@@ -19,7 +21,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Inter', sans-serif;
-  background-color: var(--c_dark900);
+  background-color: rgb(var(--c_dark900));
 }
 
 #root, .Game {
@@ -41,10 +43,19 @@ body {
 }
 
 .Game {
+  position: relative;
   width: 100%;
   height: 100%;
-  border: 20px solid rgba(194, 223, 232, 0.1);
+  background-color: rgb(var(--c_dark800));
   box-shadow: 0 0 50px 10px rgba($color: #000000, $alpha: 0.2);
+  user-select: none;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 20px solid rgb(var(--c_light900),1);
+  }
 }
 
 .ErrorMobile {

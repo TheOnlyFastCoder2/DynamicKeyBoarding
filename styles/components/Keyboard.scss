@@ -20,13 +20,13 @@
 
       width: 84px;
       height: 84px;
-      background-color: var(--c_dark800);
-      color: var(--c_dark900);
+      background-color: rgb(var(--c_light900), 1);
+      color: rgb(var(--c_dark900));
       border-radius: 7px;
       transition: 0.5s;
       &.active {
-        background-color: var(--c_light900);
-        color: var(--c_dark900);
+        background-color: rgb(var(--c_light900), 0.1);
+        color: rgb(var(--c_dark900));
         // opacity: 0;
       }
     }

@@ -1,18 +1,19 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import React  from 'react';
 
 import { constState, letters } from 'store/game/state';
 import * as Game from 'store/game';
 import { LettersType } from 'lib/types';
+import Range from './Range';
 
 
 type EventTarget = React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLButtonElement>;
-const average = (array:number[]) => array.reduce((a, b) => a + b) / array.length;
 
 export default function () {
-  const state = useSelector(Game.getState);
-  const dispatch = useDispatch();
+  const state = useAppSelector(Game.getState);
+  const dispatch = useAppDispatch();
 
+  
   function setFrequencyDates(arr:Array<number>) {
     
     if(arr.length > 0)
@@ -58,18 +59,43 @@ export default function () {
     dispatch(Game.actions.getRun(true));
   }
 
+  function setDifficultyFactor(value:number) {
+    dispatch(Game.actions.setDifficultyFactor(value));
+  }
+
+  function setMainLevel(value:number) {
+    dispatch(Game.actions.setMainLevel(value));
+  }
+ 
   return (
     <>
       {
         state.isRunning === false && 
         <div className="DialogFile">
           <div className="DialogFile_container">
+            <div className="right">
+              <Range
+                min={0.1}
+                max={1}
+                step={0.1}
+                startVal={state.difficultyFactor}
+                title='Сложность'
+                handler={setDifficultyFactor}
+              />
+              <div id='levelChanger'>
+                <h3>уровень</h3>
+                <input onInput={(e) => setMainLevel(+e.currentTarget.value)} min={1} type="number" placeholder='можно ввести уровень'  />
+              </div>
+            </div>
+            
+
+            <div className="left">
               <label htmlFor="dialogFile">выберите музыку на ПК</label>
               <input id="dialogFile" type="file" onChange={closePopUp} accept="audio/*"/>
               <button data-key={"testMusic"} onClick={closePopUp}>
                 выбрать тестовую музыку
               </button>
-
+              
               {
                 constState.analyzer.isThereAudio() &&
                 <button data-key={"withCurrMusic"} onClick={closePopUp}>
@@ -99,7 +125,7 @@ export default function () {
                 }
               </div>
             </div>
-
+          </div>
           <div className="DialogFile_background"></div>
         </div>
       }

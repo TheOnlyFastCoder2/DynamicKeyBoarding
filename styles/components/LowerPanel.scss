@@ -1,7 +1,19 @@
 .LowerPanel {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid var(--c_dark800);
+  border-top: 2px solid rgb(var(--c_light900),0.2);
   padding-top: 90px;
   height: 486px;
+
+  .rightPanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    gap: 20px;
+    right:-200px;
+    top:0;
+    height: 100%;
+  }
 }

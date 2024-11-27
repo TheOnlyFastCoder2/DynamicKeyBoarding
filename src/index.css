@@ -16,7 +16,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Inter', sans-serif;
-  background-color: var(--c_dark900); }
+  background-color: rgb(var(--c_dark900)); }
 
 #root {
   position: relative;
@@ -42,7 +42,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
-    background: var(--c_dark800);
+    background: rgb(var(--c_dark800));
     opacity: .8; }
   .DialogFile_container {
     position: absolute;
@@ -64,7 +64,7 @@ body {
       padding: 10px 20px;
       border: none;
       cursor: pointer;
-      background-color: var(--c_light900);
+      background-color: rgb(var(--c_light900));
       outline: none; }
   .DialogFile_lang {
     display: flex;
@@ -77,7 +77,7 @@ body {
 .LowerPanel {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid var(--c_dark800);
+  border-top: 1px solid rgb(var(--c_dark800));
   padding-top: 90px;
   height: 486px; }
 
@@ -98,13 +98,13 @@ body {
       font-weight: 900;
       width: 84px;
       height: 84px;
-      background-color: var(--c_dark800);
-      color: var(--c_dark900);
+      background-color: rgb(var(--c_dark800));
+      color: rgb(var(--c_dark900));
       border-radius: 7px;
       transition: 0.5s; }
       .Keyboard ul li.active {
-        background-color: var(--c_light900);
-        color: var(--c_dark900); }
+        background-color: rgb(var(--c_light900));
+        color: rgb(var(--c_dark900)); }
 
 .Health {
   display: flex;
@@ -114,7 +114,7 @@ body {
   position: relative;
   width: 288px;
   height: 100%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) var(--hp), var(--c_light900) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) var(--hp), rgb(var(--c_light900)) 100%);
   opacity: 0.5; }
   .Health h2 {
     color: white;
@@ -133,7 +133,7 @@ body {
     line-height: 64px;
     font-weight: 900;
     font-style: italic;
-    color: var(--c_light900);
+    color: rgb(var(--c_light900));
     opacity: 0.2; }
   .Score h1 {
     font-size: 150px;
@@ -142,7 +142,7 @@ body {
     font-style: italic;
     letter-spacing: 0.03em;
     opacity: 0.5;
-    color: var(--c_light900); }
+    color: rgb(var(--c_light900)); }
 
 .Level {
   display: flex;
@@ -154,10 +154,10 @@ body {
   right: -200px;
   height: 400px;
   width: 100px;
-  background: var(--c_dark800); }
+  background: rgb(var(--c_dark800)); }
   .Level_text {
     text-align: center;
-    color: var(--c_light900);
+    color: rgb(var(--c_light900));
     text-transform: uppercase; }
     .Level_text h2 {
       font-size: 24px;
@@ -178,7 +178,7 @@ body {
       justify-content: center;
       align-items: center; }
       .Level_trace_stars svg {
-        stroke: var(--c_light900);
+        stroke: rgb(var(--c_light900));
         stroke-width: 2px;
         z-index: 9; }
 
@@ -188,7 +188,7 @@ body {
   bottom: 150px;
   width: 400px;
   height: 100px;
-  background: var(--c_dark800);
+  background: rgb(var(--c_dark800));
   transform: rotate(-90deg); }
   .VolumeController .container {
     position: relative;
@@ -204,7 +204,7 @@ body {
     left: 105%;
     transform: rotate(-90deg); }
     .VolumeController svg path {
-      fill: var(--c_light900); }
+      fill: rgb(var(--c_light900)); }
   .VolumeController input {
     width: 80%;
     height: 100%;
@@ -218,29 +218,29 @@ body {
       height: 30px;
       width: 30px;
       border-radius: 50%;
-      background: var(--c_light900);
+      background: rgb(var(--c_light900));
       cursor: pointer; }
     .VolumeController input::-moz-range-thumb {
       -webkit-appearance: none;
       height: 30px;
       width: 30px;
       border-radius: 50%;
-      background: var(--c_light900);
+      background: rgb(var(--c_light900));
       cursor: pointer; }
     .VolumeController input::-ms-thumb {
       -webkit-appearance: none;
       height: 30px;
       width: 30px;
       border-radius: 50%;
-      background: var(--c_light900);
+      background: rgb(var(--c_light900));
       cursor: pointer; }
     .VolumeController input::-ms-track {
-      background: var(--c_dark900);
+      background: rgb(var(--c_dark900));
       height: 10px; }
     .VolumeController input::-webkit-slider-runnable-track {
-      background: var(--c_dark900); }
+      background: rgb(var(--c_dark900)); }
     .VolumeController input::-moz-range-track {
-      background: var(--c_dark900);
+      background: rgb(var(--c_dark900));
       height: 10px; }
 
 .FinishGame {

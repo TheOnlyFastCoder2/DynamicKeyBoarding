@@ -82,9 +82,9 @@ export default function () {
     <>
       <ErrorMobile/>
       <div className='Game'>
+        <canvas ref={refCanvas}></canvas>
         <FinishGame flag={state.isGameOver} restartGame={restartGame}/>
         <DialogFile/>
-        <canvas ref={refCanvas}></canvas>
         <LowerPanel/>
     </div>
     </>

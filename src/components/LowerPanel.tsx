@@ -7,8 +7,10 @@ import VolumeController from "./VolumeController";
 export default function () {
   return (
     <div className="LowerPanel">
-      <Level/>
-      <VolumeController/>
+      <div className="rightPanel">
+        <Level/>
+        <VolumeController/>
+      </div>
       <Score/>
       <Keyboard/>
       <Health/>

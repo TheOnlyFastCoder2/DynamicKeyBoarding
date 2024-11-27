@@ -6,12 +6,16 @@
   position: relative;
   width: 288px;
   height: 100%;
-  background: linear-gradient(180deg, rgba(0,0,0,0) var(--hp), var(--c_light900) 100%); 
-  opacity: 0.5;
+  padding-bottom: 20px;
+  background: linear-gradient(180deg, rgba(0,0,0,0) var(--hp), rgb(var(--c_light900)) 100%); 
+
   h2 {
-    color: white;
+    color: rgb(var(--c_light900), 0.5);
+    text-shadow: 4px 4px rgb(var(--c_dark900),0.05), -4px 4px rgb(var(--c_dark900),0.05);
     font-size: 60px;
+    letter-spacing: 5px;
     font-weight: 900;
+
     font-style: italic;
     text-transform: uppercase;
   }
