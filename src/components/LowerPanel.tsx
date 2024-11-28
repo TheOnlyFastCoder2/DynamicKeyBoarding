@@ -1,16 +1,28 @@
+import { getState }from 'store/game';
+import { useAppSelector } from "store/hooks";
+
 import Keyboard from "./Keyboard";
 import Health from "./Health";
 import Score from "./Score";
 import Level from "./Level";
 import VolumeController from "./VolumeController";
 
+
+
+
 export default function () {
+  const state = useAppSelector(getState)
+
   return (
     <div className="LowerPanel">
-      <div className="rightPanel">
-        <Level/>
-        <VolumeController/>
-      </div>
+      {
+        state.isRunning && (
+          <div className="rightPanel">
+            <Level/>
+            <VolumeController/>
+          </div>
+        )
+      }
       <Score/>
       <Keyboard/>
       <Health/>

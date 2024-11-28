@@ -4,8 +4,6 @@ import { constState } from 'store/game/state'
 import IconVolume from 'lib/icons/volume'
 
 export default function () {
-
-
   function setVolume({target}: React.ChangeEvent<HTMLInputElement> ) {
     constState.analyzer.setVolume(+target.value);
   }
